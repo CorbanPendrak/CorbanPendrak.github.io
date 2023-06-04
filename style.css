@@ -19,6 +19,7 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 16px;
+    margin-bottom: 50px;
 }
 
 ul {
@@ -33,13 +34,18 @@ a {
     text-decoration: none;
 }
 
-.hero .container {
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 32px;
-    padding: 75px 0;
-    flex-wrap: wrap-reverse;
+    padding-bottom: 75px;
+    padding-top: 25px;
+    flex-wrap: wrap;
+}
+
+.hero .containter {
+    flex-wrap: wrap-reverse
 }
 
 .hero .main {
@@ -84,7 +90,24 @@ button,
 .info h1 {
     font-size: 36px;
     font-weight: 900;
-    color: #1F2937
+    color: #1F2937;
+    text-align: center;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    text-align: center;
+    flex-basis: 150px;
+}
+
+.info img {
+    width: 150px;
+    height: 150px;
+    border: #3882F6 solid 3px;
+    border-radius: 10px;
 }
 
 .quote {
