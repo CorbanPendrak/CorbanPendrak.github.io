@@ -8,17 +8,13 @@ body {
 
 .hero {
     background-color: #1F2937;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-grow: 0;
+    padding: 30px 100px 80px;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 16px;
 }
 
 ul {
@@ -35,9 +31,8 @@ a {
 
 .container {
     display: flex;
-    justify-content: center;
-    gap: 32px;
-    padding: 50px;
+    justify-content: space-between;
+    padding-top: 80px;
     flex-wrap: wrap;
 }
 
@@ -49,8 +44,8 @@ a {
     font-size: 48px;
     font-weight: 900;
     color: #F9FAF8;
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
 }
 
 .hero .secondary,
@@ -60,7 +55,7 @@ a {
     margin-bottom: 8px;
 }
 
-.hero img {
+img {
     line-height: 200px;
     width: 400px;
     height: 200px;
@@ -74,17 +69,8 @@ a {
     color: #F9FAF8;
 }
 
-button,
-.action-space {
-    background-color: #3882F6;
-    border-radius: 10px;
-    color: #F9FAF8;
-    border: none;
-    padding: 4px 16px;
-}
-
-button {
-    font-size: 20px;
+.info {
+    padding: 20px 100px 80px;
 }
 
 .info h1 {
@@ -92,88 +78,71 @@ button {
     font-weight: 900;
     color: #1F2937;
     text-align: center;
-    margin-bottom: 0px;
+}
+
+.card-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 50px;
 }
 
 .card {
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
     text-align: center;
     flex-basis: 150px;
+    gap: 10px;
 }
 
-.info img {
+.card img {
     width: 150px;
     height: 150px;
     border: #3882F6 solid 3px;
     border-radius: 10px;
+    line-height: 150px;
 }
 
 .quote {
     background-color: #E5E7EB;
-    /*padding: 60px 250px;
-    align-items: center; */
     display: flex;
     justify-content: center;
 }
 
 .quote .container {
-    /*
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 32px;
-    padding-bottom: 75px;
-    padding-top: 25px;
-    flex-wrap: wrap;
-    */
-
     flex-basis: 600px;
     flex-direction: column;
-    padding-left: 25px;
-    padding-right: 25px;
+    gap: 16px;
+    padding-bottom: 80px;
 }
 
 .quote-message {
-    /*margin: 0px;
-    padding: 0px;
-    color: #1F2937;
-    font-weight: 200; */
-
     font-size: 36px;
     font-style: italic;
-
 }
 
 .author {
     align-self: flex-end;
+    font-weight: bold;
+    font-size: 16px;
 }
 
 .action-area {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 10px;
-}
-
-.action-space {
-    display: flex;
-    flex-basis: 650px;
-    justify-content: center;
-    align-items: center;
-    padding: 20px 50px;
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
 .action {
-    flex-grow: 1;
     display: flex;
     justify-content: space-between;
     align-items: center;
     font-size: 15px;
     flex-wrap: wrap;
-    gap: 16px;
+    gap: 128px;
+    padding: 30px 80px;
 }
 
 .action .title {
@@ -182,8 +151,20 @@ button {
     color: #F9FAF8;
 }
 
+button,
+.action {
+    background-color: #3882F6;
+    border-radius: 5px;
+    color: #F9FAF8;
+}
+
+button {
+    font-size: 18px;
+    padding: 5px 30px;
+    border: none;
+}
+
 .action button {
     border: #F9FAF8 solid 3px;
-    padding: 4px 16px;
     flex-shrink: 0;
 }
