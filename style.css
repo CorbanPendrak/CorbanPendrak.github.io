@@ -74,6 +74,11 @@ img {
     color: #F9FAF8;
 }
 
+.logo img {
+    width: 40px;
+    background-color: #1F2937;
+}
+
 .info {
     padding: 20px 40px 80px;
     margin: auto;
