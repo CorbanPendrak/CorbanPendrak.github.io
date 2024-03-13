@@ -1,0 +1,12 @@
+body {
+    background-color: #8a0000;
+}
+
+.center-image {
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    height: max-content;
+}

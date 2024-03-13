@@ -4,10 +4,19 @@ body {
     flex-direction: column;
     margin: 0;
     justify-content: center;
+    background-image: url("./background.svg");
+    background-repeat: repeat;
+    background-size: 50px;
 }
 
 .hero-bg {
     background-color: #1F2937;
+}
+
+#colorImage:hover {
+    filter: hue-rotate(360deg);
+    transition-duration: 25s;
+    animation-iteration-count: infinite;
 }
 
 .hero {
@@ -51,6 +60,7 @@ a {
     color: #F9FAF8;
     margin: 0;
     padding: 0;
+    text-shadow: 2px 2px #566b78;
 }
 
 .hero .secondary,
@@ -129,6 +139,12 @@ img {
 .quote-message {
     font-size: 36px;
     font-style: italic;
+}
+
+.quote-message::first-letter {
+    font-size: 50px;
+    color: black;
+    font-family: cursive;
 }
 
 .author {

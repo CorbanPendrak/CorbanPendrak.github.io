@@ -1,0 +1,62 @@
+/*
+file: default-styles.css
+author: Corban Pendrak based on https://jgthms.com/web-design-in-4-minutes/
+date: 29Jan24
+purpose: Default stylesheet for web design
+*/
+
+body {
+    /* Centering */
+    margin: 0 auto;
+    max-width: 50em;
+
+    /* Text formatting */
+    font-family: "Helvetica", "Arial", sans-serif;
+
+    /* Spacing */
+    line-height: 1.5;
+    padding: 4em 1em;
+
+    /* Color */
+    color: #566b78;
+}
+
+h2 {
+    /* Spacing */
+    margin-top: 1em;
+    padding-top: 1em;
+}
+
+/* Darker color for headers and bold text */
+h1, h2, strong {
+    color: #333;
+}
+
+/* Code snippet cleaning */
+code, pre {
+    font-family: Consolas, "courier new", serif;
+    font-size: 105%;
+
+    color: #a7adba;
+    background: #f5f7f9;
+
+    padding: 2px;
+    border-bottom: 1px solid #d8dee9;
+    border-left: 2px solid #69c;
+}
+
+/* Code snippet cleaning */
+code {
+    padding: 2px 4px;
+    vertical-align: text-bottom;
+}
+
+/* Code snippet cleaning */
+pre {
+    padding: 1em;
+}
+
+/* Primary color */
+a {
+    color: limegreen;
+}
