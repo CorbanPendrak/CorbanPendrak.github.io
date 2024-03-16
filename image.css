@@ -3,10 +3,12 @@ body {
 }
 
 .center-image {
+    height: 100vh;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 img {
-    height: max-content;
+    width: 100vw;
 }
