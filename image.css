@@ -19,7 +19,7 @@ video {
 
 .credit {
     position: absolute;
-    bottom: 17px;
+    top: 5px;
     color: rgb(38, 38, 38);
     width: 200px;
     background-color: rgba(242, 242, 242, 0.2);
