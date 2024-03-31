@@ -13,9 +13,8 @@ body {
     position: relative;
 }
 
-img {
+video {
     height: 100%;
-    align-self: center;
 }
 
 .credit {
