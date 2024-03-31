@@ -5,10 +5,25 @@ body {
 .center-image {
     height: 100vh;
     display: flex;
+    text-align: center;
     justify-content: center;
-    align-items: center;
+}
+
+.image {
+    position: relative;
 }
 
 img {
-    width: 100vw;
+    height: 100%;
+    align-self: center;
+}
+
+.credit {
+    position: absolute;
+    bottom: 17px;
+    color: rgb(38, 38, 38);
+    width: 200px;
+    background-color: rgba(242, 242, 242, 0.2);
+    border-radius: 10px;
+    font-size: 1.5rem;
 }
