@@ -1,9 +1,18 @@
 /*
 file: default-styles.css
 author: Corban Pendrak based on https://jgthms.com/web-design-in-4-minutes/
+    and https://www.joshwcomeau.com/css/custom-css-reset/
 date: 29Jan24
 purpose: Default stylesheet for web design
 */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
 
 body {
     /* Centering */
@@ -17,19 +26,49 @@ body {
     line-height: 1.5;
     padding: 4em 1em;
 
+    /* Remove aliasing on MacOS */
+    -webkit-font-smoothing: antialiased;
+
     /* Color */
-    color: #566b78;
+    color: #c0c6ca;
+    background-color: #515151;
 }
 
-h2 {
-    /* Spacing */
-    margin-top: 1em;
-    padding-top: 1em;
-}
-
-/* Darker color for headers and bold text */
+/* Different color for headers and bold text */
 h1, h2, strong {
-    color: #333;
+    color: #a5c2d6;
+}
+
+/* Block images */
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+/* Inherit styles for buttons/text fields */
+input, button, textarea, select {
+  font: inherit;
+}
+
+/* Improve text wrapping */
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+    hyphens: auto;
+    padding-bottom: 20px;
+}
+
+p {
+    margin-left: 1em;
+    text-wrap: pretty;
+    font-size: 1.2em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+#root, #__next {
+    isolation: isolate;
 }
 
 /* Code snippet cleaning */

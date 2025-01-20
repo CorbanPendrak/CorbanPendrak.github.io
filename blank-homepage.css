@@ -4,7 +4,7 @@ body {
     flex-direction: column;
     margin: 0;
     justify-content: center;
-    background-image: url("./background.svg");
+    background-image: url("Images/background.svg");
     background-repeat: repeat;
     background-size: 50px;
 }
