@@ -1,35 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Homepage</title>
-    <link rel="stylesheet" href="default-styles.css">
-    <link rel="stylesheet" href="index-styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<meta charset="UTF-8">
+	<title>Homepage</title>
+	<style>
+	body {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		height: 100vh;
+		background-color: #e3e3e3;
+		margin: 0;
+	}
+
+	p {
+		font-family: 'Arial', sans-serif;
+		font-size: 2em;
+		text-align: center;
+		font-weight: 550;
+	}
+
+	#hammer-animation {
+		position: relative;
+		width: 200px;
+		height: 200px;
+	}
+
+	#hammer {
+		position: absolute;
+		width: 50px;
+		animation: hammer-strike 1.5s infinite ease-in-out;
+		transform-origin: bottom center;
+		left: 125px;
+		bottom: 90px;
+	}
+
+	#anvil {
+		position: absolute;
+		bottom: 0;
+		left: 50px;
+		width: 100px;
+		animation-delay: 0.75s;
+	}
+
+	@keyframes hammer-strike {
+		0%, 15%, 100% {
+			transform: rotate(0deg);
+		}
+		45%, 55% {
+			transform: rotate(-80deg);
+		}
+	}
+
+	@keyframes anvil-shake {
+		0%, 90%, 100% {
+			transform: translateY(0);
+		}
+		5%, 15% {
+			transform: translateY(-2px) rotate(-0.5deg);
+		}
+		25%, 35% {
+			transform: translateY(-1px) rotate(0.5deg);
+		}
+		45% {
+			transform: translateY(0);
+		}
+	}
+
+	#sparks-container {
+  position: absolute;
+  bottom: 70px;
+  left: 90px;
+  width: 40px;
+  height: 40px;
+  z-index: 10;
+		rotate: 318deg;
+}
+
+.spark {
+  position: absolute;
+  width: 5px;
+  height: 12px;
+  background-color: #000000;
+  border-radius: 50%;
+  transform-origin: center bottom;
+  box-shadow: 0 0 8px 4px rgba(0, 0, 0, 0.7);
+  animation: spark-fly 1.5s infinite;
+}
+
+@keyframes spark-fly {
+  0%, 42%, 100% {
+    opacity: 0;
+    transform: rotate(var(--rotate)) translateY(0) scale(0);
+  }
+  45%, 55% {
+    opacity: 1;
+  }
+  70% {
+    transform: rotate(var(--rotate)) translateY(calc(var(--distance) * -1px)) scale(0.4);
+    opacity: 0;
+  }
+}
+</style>
 </head>
 <body>
-    <div class="links">
-        <a href="https://github.com/CorbanPendrak">GitHub</a>
-    </div>
-    <div class="main">
-        <div>
-            <h1>Hi, I am Corban Pendrak!</h1>
-            <p>I am a home school high school senior with a passion for knowledge.</p>
-        </div>
+<div id="hammer-animation">
+	<svg id="hammer" xmlns="http://www.w3.org/2000/svg"
+	     viewBox="0 0 512 512" xml:space="preserve">
+		  <g transform="translate(1 1)">
+		   <g>
+		    <path d="M357.4,24.6h-59.733V7.533c0-5.12-3.413-8.533-8.533-8.533h-68.267c-5.12,0-8.533,3.413-8.533,8.533V24.6H152.6
+		     c-14.507,0-25.6,11.093-25.6,25.6v85.333c0,14.507,11.093,25.6,25.6,25.6h59.733V255v221.867c0,18.773,15.36,34.133,34.133,34.133
+		     h17.067c18.773,0,34.133-15.36,34.133-34.133V255v-93.867H357.4c14.507,0,25.6-11.093,25.6-25.6V50.2
+		     C383,35.693,371.907,24.6,357.4,24.6z M229.4,16.067h51.2V24.6h-51.2V16.067z M280.6,476.867c0,9.387-7.68,17.067-17.067,17.067
+		     h-17.067c-9.387,0-17.067-7.68-17.067-17.067v-8.533h17.067c5.12,0,8.533-3.413,8.533-8.533c0-5.12-3.413-8.533-8.533-8.533H229.4
+		     V434.2h17.067c5.12,0,8.533-3.413,8.533-8.533s-3.413-8.533-8.533-8.533H229.4v-153.6h51.2V476.867z M280.6,246.467h-51.2v-85.333
+		     h51.2V246.467z M365.933,135.533c0,5.12-3.413,8.533-8.533,8.533h-68.267h-68.267H152.6c-5.12,0-8.533-3.413-8.533-8.533V50.2
+		     c0-4.267,4.267-8.533,8.533-8.533h68.267h68.267H357.4c5.12,0,8.533,3.413,8.533,8.533V135.533z"/>
+		   </g>
+		  </g>
+		</svg>
+	<svg id="anvil" fill="#000000" xmlns="http://www.w3.org/2000/svg"
+	     viewBox="0 0 512 512" xml:space="preserve">
+<g transform="translate(1 1)">
+	<g>
+		<path d="M504.724,137.96c4.074-12.905,6.276-26.621,6.276-40.826c0-5.12-3.413-8.533-8.533-8.533H152.6
+			c-5.12,0-8.533,3.413-8.533,8.533V114.2H7.533c-5.12,0-8.533,3.413-8.533,8.533c0,61.44,49.493,110.933,110.933,110.933H152.6
+			h13.79c8.898,8.688,15.684,18.143,20.343,29.013c0.655,1.309,1.437,2.362,2.343,3.169c4.636,11.454,7.044,23.769,7.044,36.084
+			c0,26.034-10.865,50.512-28.886,68.267h-31.701c-14.507,0-25.6,11.093-25.6,25.6c0,14.507,11.093,25.6,25.6,25.6h238.933
+			c14.507,0,25.6-11.093,25.6-25.6c0-14.507-11.093-25.6-25.6-25.6h-30.949c-18.692-17.826-28.785-43.043-28.785-68.267
+			c0-25.223,10.092-50.441,28.044-68.267h31.689c54.908,0,102.511-32.852,124.138-79.869c0.476-0.6,0.914-1.275,1.302-2.051
+			C501.702,147.259,503.314,142.652,504.724,137.96z M161.133,105.667h332.8c-0.853,11.947-3.413,23.04-7.68,34.133h-325.12v-17.067
+			V105.667z M189.293,233.667h131.413c-3.982,5.388-7.496,11.106-10.525,17.067H200.387
+			C196.973,244.76,193.56,238.787,189.293,233.667z M16.92,131.267h127.147v17.067V216.6h-33.28
+			C61.293,216.6,21.187,179.053,16.92,131.267z M383,395.8c0,5.12-3.413,8.533-8.533,8.533H135.533c-5.12,0-8.533-3.413-8.533-8.533
+			s3.413-8.533,8.533-8.533h34.133h170.667h34.133C379.587,387.267,383,390.68,383,395.8z M320.707,370.2H189.293
+			c15.36-19.627,23.04-43.52,23.04-68.267c0-11.691-1.736-23.184-5.164-34.133h95.962c-3.539,10.95-5.464,22.443-5.464,34.133
+			C297.667,326.68,306.2,350.573,320.707,370.2z M374.467,216.6H339.48H168.813h-7.68v-59.733h317.18
+			C457.601,192.662,418.765,216.6,374.467,216.6z"/>
+	</g>
+</g>
+</svg>
+<div id="sparks-container">
+  <div class="spark" style="--rotate: -30deg; --distance: 15; --delay: 0ms;"></div>
+  <div class="spark" style="--rotate: -15deg; --distance: 25; --delay: 50ms;"></div>
+  <div class="spark" style="--rotate: 0deg; --distance: 20; --delay: 25ms;"></div>
+  <div class="spark" style="--rotate: 15deg; --distance: 22; --delay: 10ms;"></div>
+  <div class="spark" style="--rotate: 30deg; --distance: 18; --delay: 40ms;"></div>
+  <div class="spark" style="--rotate: 45deg; --distance: 15; --delay: 30ms;"></div>
+  <div class="spark" style="--rotate: -45deg; --distance: 20; --delay: 20ms;"></div>
+</div>
+</div>
 
-        <div class="section">
-            <h1>My Interests</h1>
-            <div class="container">
-                <div class="card">
-                    <h2>Web Development</h2>
-                    <p>I am working through the Odin Project and building my personal website.</p>
-                </div>
-                <div class="card">
-                    <h2>Paper Mache</h2>
-                    <p>I like recycling, and paper can be easily recycled into compost or as art with paper mache.</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<p>I'm crafting something great, but it's not ready just yet. <br> Check back in later!</p>
+
+<!--
+<script>
+	document.addEventListener('DOMContentLoaded', function() {
+  const sparks = document.querySelectorAll('.spark');
+
+  sparks.forEach(spark => {
+    // Random duration between 400-700ms
+    const duration = 400 + Math.random() * 300;
+    spark.style.animation = `spark-fly ${duration}ms forwards`;
+
+    // Reset animation to create flickering effect
+    setInterval(() => {
+      spark.style.animation = 'none';
+      setTimeout(() => {
+        spark.style.animation = `spark-fly ${duration}ms forwards`;
+      }, 15);
+    }, 1500); // Match the hammer animation cycle
+  });
+});
+</script>
+-->
 </body>
 </html>
