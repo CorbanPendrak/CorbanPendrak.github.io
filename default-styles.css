@@ -6,7 +6,9 @@ date: 29Jan24
 purpose: Default stylesheet for web design
 */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -15,87 +17,109 @@ purpose: Default stylesheet for web design
 }
 
 body {
-    /* Centering */
-    margin: 0 auto;
-    max-width: 50em;
+  /* Centering */
+  margin: 0 auto;
+  max-width: 50em;
 
-    /* Text formatting */
-    font-family: "Helvetica", "Arial", sans-serif;
+  /* Text formatting */
+  font-family: "Helvetica", "Arial", sans-serif;
 
-    /* Spacing */
-    line-height: 1.5;
-    padding: 4em 1em;
+  /* Spacing */
+  line-height: 1.5;
+  padding: 4em 1em;
 
-    /* Remove aliasing on MacOS */
-    -webkit-font-smoothing: antialiased;
+  /* Remove aliasing on MacOS */
+  -webkit-font-smoothing: antialiased;
 
-    /* Color */
-    color: #c0c6ca;
-    background-color: #515151;
+  /* Color */
+  color: #c0c6ca;
+  background-color: #515151;
 }
 
 /* Different color for headers and bold text */
-h1, h2, strong {
-    color: #a5c2d6;
+h1,
+h2,
+strong {
+  color: #a5c2d6;
 }
 
 /* Block images */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 /* Inherit styles for buttons/text fields */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 /* Improve text wrapping */
-p, h1, h2, h3, h4, h5, h6 {
-    overflow-wrap: break-word;
-    hyphens: auto;
-    padding-bottom: 20px;
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  hyphens: auto;
+  padding-bottom: 20px;
 }
 
 p {
-    margin-left: 1em;
-    text-wrap: pretty;
-    font-size: 1.2em;
+  margin-left: 1em;
+  text-wrap: pretty;
+  font-size: 1.2em;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    text-wrap: balance;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
 }
 
-#root, #__next {
-    isolation: isolate;
+#root,
+#__next {
+  isolation: isolate;
 }
 
 /* Code snippet cleaning */
-code, pre {
-    font-family: Consolas, "courier new", serif;
-    font-size: 105%;
+code,
+pre {
+  font-family: Consolas, "courier new", serif;
+  font-size: 105%;
 
-    color: #a7adba;
-    background: #f5f7f9;
+  color: #a7adba;
+  background: #f5f7f9;
 
-    padding: 2px;
-    border-bottom: 1px solid #d8dee9;
-    border-left: 2px solid #69c;
+  padding: 2px;
+  border-bottom: 1px solid #d8dee9;
+  border-left: 2px solid #69c;
 }
 
 /* Code snippet cleaning */
 code {
-    padding: 2px 4px;
-    vertical-align: text-bottom;
+  padding: 2px 4px;
+  vertical-align: text-bottom;
 }
 
 /* Code snippet cleaning */
 pre {
-    padding: 1em;
+  padding: 1em;
 }
 
 /* Primary color */
 a {
-    color: limegreen;
+  color: limegreen;
 }
