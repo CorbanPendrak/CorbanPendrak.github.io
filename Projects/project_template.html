@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://corbanpendrak.github.io/Images/Website-sharing-minimalist.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://corbanpendrak.github.io/Images/Favicon16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://corbanpendrak.github.io/Images/Favicon32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="https://corbanpendrak.github.io/Images/Favicon48.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://corbanpendrak.github.io/Images/Favicon180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://corbanpendrak.github.io/Images/Favicon192.png"
+    />
+    <title>{{ project.title }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/pruger/tiny-brutalism-css/tiny-brutalism.css"
+    />
+    <link rel="stylesheet" href="projects.css" />
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <h1 class="text-center">
+      <a class="logo" href="https://corbanpendrak.github.io">Corban Pendrak</a>
+    </h1>
+    <div class="container">
+      <h1>{{ project.title }}</h1>
+      <div class="summary-box box">{{ project.summary_html|safe }}</div>
+
+      <div class="links-box box">
+        <h2>Links</h2>
+        <div class="links">
+          {% if project.links.repo %}
+          <a href="{{ project.links.repo }}"><img src="Images/repo.svg" /></a>
+          {% endif %} {% if project.links.demo %}
+          <a href="{{ project.links.demo }}"><img src="Images/demo.svg" /></a>
+          {% endif %} {% if project.links.devpost %}
+          <a href="{{ project.links.devpost }}"
+            ><img src="Images/devpost.svg"
+          /></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <p>Status: <strong>{{ project.status }}</strong></p>
+      <p>
+        Tags: {% for tag in project.tags %}<span>{{ tag }}</span>{% if not
+        loop.last %}, {% endif %}{% endfor %}
+      </p>
+      <div class="details">{{ project.details_html|safe }}</div>
+
+      <div class="links-box box">
+        <h2>Links</h2>
+        <div class="links">
+          {% if project.links.repo %}
+          <a href="{{ project.links.repo }}"><img src="Images/repo.svg" /></a>
+          {% endif %} {% if project.links.demo %}
+          <a href="{{ project.links.demo }}"><img src="Images/demo.svg" /></a>
+          {% endif %} {% if project.links.devpost %}
+          <a href="{{ project.links.devpost }}"
+            ><img src="Images/devpost.svg"
+          /></a>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="box">
+        <h2>People</h2>
+        <ul>
+          {% for person in project.people %}
+          <li><strong>{{ person.name }}</strong>: {{ person.role }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

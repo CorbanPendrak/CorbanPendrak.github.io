@@ -1,0 +1,80 @@
+ul {
+  margin: 0em 0em 1em 1em;
+}
+
+hr {
+  border: 2px solid #000;
+  background-color: #000;
+  height: 5px;
+  margin: 0 3rem 1rem;
+}
+
+.details {
+  margin: 2em;
+}
+
+.summary-box,
+.links-box {
+  width: 90%;
+  max-width: 800px;
+  margin: 2em auto;
+}
+
+.links-box {
+  width: min-content;
+}
+
+.links img {
+  aspect-ratio: 1;
+  height: 5em;
+  transition: linear(
+      0,
+      0.013 0.6%,
+      0.05 1.2%,
+      0.2 2.5%,
+      0.949 6.7%,
+      1.2 8.4%,
+      1.286 9.2%,
+      1.35 10%,
+      1.392 10.8%,
+      1.411 11.6%,
+      1.411 12.2%,
+      1.401 12.8%,
+      1.343 14.2%,
+      1.258 15.5%,
+      1.016 18.7%,
+      0.914 20.4%,
+      0.856 21.9%,
+      0.831 23.5%,
+      0.834 24.7%,
+      0.858 26.1%,
+      0.996 30.7%,
+      1.037 32.4%,
+      1.06 33.9%,
+      1.07 35.4%,
+      1.061 37.7%,
+      0.989 43.8%,
+      0.971 47.2%,
+      1.012 59.1%,
+      0.995 70.8%,
+      1
+    )
+    1s;
+}
+
+.links img:hover {
+  height: 5.5em;
+}
+
+.links:hover img:not(:hover) {
+  height: 4.5em;
+}
+
+.links {
+  width: 18em;
+  height: 5.5em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}

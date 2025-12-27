@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://corbanpendrak.github.io/Images/Website-sharing-minimalist.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://corbanpendrak.github.io/Images/Favicon16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://corbanpendrak.github.io/Images/Favicon32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="https://corbanpendrak.github.io/Images/Favicon48.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://corbanpendrak.github.io/Images/Favicon180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://corbanpendrak.github.io/Images/Favicon192.png"
+    />
+    <title>AeroMouse — ESP32 Wireless Air Mouse</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/pruger/tiny-brutalism-css/tiny-brutalism.css"
+    />
+    <link rel="stylesheet" href="projects.css" />
+    <link rel="stylesheet" href="global.css" />
+  </head>
+  <body>
+    <h1 class="text-center">
+      <a class="logo" href="https://corbanpendrak.github.io">Corban Pendrak</a>
+    </h1>
+    <div class="container">
+      <h1>AeroMouse — ESP32 Wireless Air Mouse</h1>
+      <div class="summary-box box">
+        <p>
+          AeroMouse is a wireless air mouse built with ESP32 and IMU sensors.
+        </p>
+        <p>It translates natural hand motion into precise cursor movement.</p>
+      </div>
+
+      <div class="links-box box">
+        <h2>Links</h2>
+        <div class="links">
+          <a href="https://github.com/CorbanPendrak/aeromouse"
+            ><img src="Images/repo.svg"
+          /></a>
+
+          <a href="https://corbanpendrak.github.io/AeroMouse/"
+            ><img src="Images/demo.svg"
+          /></a>
+
+          <a href="https://devpost.com/software/floating-mouse"
+            ><img src="Images/devpost.svg"
+          /></a>
+        </div>
+      </div>
+
+      <p>Status: <strong>complete</strong></p>
+      <p>
+        Tags: <span>robotics</span>, <span>esp32</span>, <span>embedded</span>
+      </p>
+      <div class="details">
+        <h2>Inspiration</h2>
+        <p>
+          We were inspired a bit by extremely ergonomic science fiction
+          controllers and the Nintendo Wii remote with that magical feeling of
+          controlling a fine tuned cursor from a distance with just hand
+          gestures. Picture this: you're lounging on your couch, wanting to
+          browse the internet or control a presentation, but you're physically
+          chained to a flat surface by the ancient mouse. Sure, presentation
+          clickers "work", but they allow for little control, and remotes
+          "work", but they require carefully pointing at a tiny button. After 40
+          years of desktop tyranny, we asked ourselves - why are we still
+          tethered to flat surfaces? The vision was simple yet revolutionary:
+          <strong>your computer, un-tethered</strong>.
+        </p>
+        <h2>What AeroMouse Does</h2>
+        <p>
+          AeroMouse is a wireless air mouse that translates natural hand
+          gestures into precise cursor control using advanced sensor fusion
+          technology. Hold it like a TV remote and simply:
+        </p>
+        <ul>
+          <li>
+            <strong>Tilt</strong> to move the cursor horizontally and vertically
+          </li>
+          <li>
+            <strong>Click</strong> buttons for left/right/middle mouse functions
+          </li>
+          <li>
+            <strong>Double-tap</strong> middle button to switch to scroll mode
+          </li>
+        </ul>
+        <p>
+          Perfect for entertainment systems, presentations, couch computing, or
+          anyone tired of being physically restricted to a desk setup. Even
+          sitting at a regular desk, AeroMouse allows for the comfort of leaning
+          back or moving without stretching your hand awkwardly. No drivers, no
+          dongles, no hassle - just pure freedom through Bluetooth connectivity.
+        </p>
+        <h2>The Building Blocks of Our Vision</h2>
+        <div class="box">
+          <h3>The Hardware</h3>
+          <p>We started with humble components but ambitious goals:</p>
+          <ul>
+            <li>
+              <strong>ESP32 DevKit</strong> as our brain (thanks to the IEEE
+              workshop!)
+            </li>
+            <li>
+              <strong>MPU6050</strong> 6-axis IMU sensor for tracking
+              orientation
+            </li>
+            <li>
+              <strong>3 push buttons</strong> for full mouse functionality
+            </li>
+            <li>
+              <strong>Breadboard foundation</strong> for rapid prototyping
+            </li>
+          </ul>
+          <p>
+            Originally, we intended to use a Raspberry Pi based system, like the
+            Raspberry Pi Zero, but with challenges with connecting to the
+            device, we pivoted to using the ESP32. While a released product
+            would feature much nicer case, we used a breadboard for easier
+            testing and demonstrating the functionality. To improve the form, we
+            used wires, rather than jumper cables for the breadboard.
+          </p>
+        </div>
+        <div class="box">
+          <h3>The Software Revolution</h3>
+          <p>
+            The real work happened in the code. We handcoded the design and
+            implemented sophisticated algorithms for nice cursor tracking.
+          </p>
+          <ul>
+            <li>
+              <strong>Complementary Filter</strong>: Fuses gyroscope with custom
+              curves for rock-solid tracking
+            </li>
+            <li>
+              <strong>Adaptive Bias Correction</strong>: Automatically
+              compensates for sensor drift using Kalman-lite approach
+            </li>
+            <li>
+              <strong>Non-linear Response Curves</strong>: Separate mathematical
+              curves for cursor vs scroll modes
+            </li>
+            <li>
+              <strong>Momentum System</strong>: Captures those subtle, slow
+              movements with 0.88 decay rate
+            </li>
+            <li>
+              <strong>Health Monitoring</strong>: Automatic I2C recovery when
+              sensors misbehave
+            </li>
+          </ul>
+          <p>
+            We wrote the code in C/C++ using Arduino IDE, to have better low
+            level access and customization. We used the ESP32 BLE Mouse library
+            to wirelessly connect our device as a Bluetooth HID mouse.
+          </p>
+        </div>
+        <h2>Challenges We Conquered</h2>
+        <div class="box">
+          <h3>Team Coordination and Work</h3>
+          <p>
+            With only 2 ESP32s for 4 team members during the hackathon crunch,
+            we had to get creative with collaboration. Additionally, with such a
+            linear hardware project, where the connection required the gyroscope
+            which required the buttons, it was hard to work together on some of
+            the sections. Despite this, we divided the tasks along roughly
+            obvious categories and worked together as much as possible. With our
+            extra team power, we created a product website and polished it.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Precision vs. Usability</h3>
+          <p>
+            Our biggest technical challenge was achieving the perfect balance
+            between sensitivity, stability, and the gyroscope's own limitations.
+            Too sensitive meant the mouse was too jittery. Too slow meant
+            sluggish frustration. We solved this with:
+          </p>
+          <ul>
+            <li>
+              <strong>Multiple sensitivity modes</strong> (Low/Medium/High)
+            </li>
+            <li>
+              <strong>Smart deadzone algorithms</strong> to eliminate
+              micro-movements
+            </li>
+            <li><strong>Exponential smoothing</strong> for smooth tracking</li>
+          </ul>
+          <p>
+            We originally wrote all of our code <strong>by hand</strong>, which
+            worked well, but the cursor was <em>not as smooth</em> as any
+            commercial product. After building the working demo code ourselves,
+            we decided to have AI write some custom curve algorithms for us as a
+            last minute experiment to improve the controls. After several failed
+            attempts with Gemini, which possibly made the code worse, and
+            Copilot, which just made it wrong in different ways, Claude rewrote
+            the majority of the code in an iterative experimentation process
+            that resulted in a much smoother mouse, which has ended up being our
+            final submission. So, the majority of our code will flag as AI
+            produced, because these final rewrites changed the code
+            significantly, but
+            <strong>we originally wrote all of the code ourselves</strong>. If
+            we had more time, we might have been able to code the customized
+            calibration curves ourselves, but even working with AI, we needed to
+            revise the code several times to achieve the best functionality.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Gyroscope Accuracy</h3>
+          <p>
+            Initially the MPU6050 gyroscope wasn't quite meeting our precision
+            expectations. Our code (pre-AI) worked, but we ran into issues with
+            the gyroscope precision, where small movements would be ignored and
+            the gyroscope would reset its heading. This made for a very
+            difficult challenge that we just didn't have time to fix. However,
+            with some help from AI and <strong>several</strong> rounds of
+            testing lasting into the early morning before the submission
+            deadline, we developed custom calibration controls to mitigate this
+            error.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Library Troubles</h3>
+          <p>
+            The T-vK ESP32 BLE Mouse library saved us a lot of work, which we
+            immediately used for exploring hardware alternatives, improving the
+            calibration, and building a website. However, it wouldn't originally
+            run for us because of some type conversion errors in the library
+            itself, and we almost had to rewrite the entire library from
+            scratch. Thankfully, our team found the problem, fixed the library
+            by hand, and compiled the code correctly for the rest of the team,
+            all while multitask attending some of the great workshops hosted at
+            the hackathon.
+          </p>
+        </div>
+        <h2>Accomplishments That Make Us Proud</h2>
+        <div class="box">
+          <h3>We Shipped a Complete Product!</h3>
+          <p>
+            In just 36 hours, we created a
+            <strong>WORKING LIVE PRODUCT</strong> that:
+          </p>
+          <ul>
+            <li>
+              Seamlessly connects to all computers that support Bluetooth
+              normally (Mac, Windows, most Linux...)
+            </li>
+            <li>
+              Registers with the computer identically to a traditional mouse (so
+              no weird connection issues)
+            </li>
+            <li>
+              Includes expected UX features like drag &amp; drop and scroll
+              modes (makes for a nicer experience)
+            </li>
+            <li>
+              Self-calibrates and recovers from errors automatically (all with a
+              sarcastic attitude)
+            </li>
+            <li>
+              Provides intuitive gesture-based control (no more flat mice!)
+            </li>
+          </ul>
+          <p>
+            While we technically had ~36 hours for the competition, with
+            planning, failed attempts with the Raspberry Pi, and a health(ish)
+            sleep schedule, we completed the project in more like
+            <strong>12 hours</strong>, but even during this time, we made space
+            to attend intereting workshops, the career fair, meals, and a few
+            rounds of video games to keep the environment fun.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Technical Breakthroughs We Achieved</h3>
+          <ul>
+            <li>
+              <strong>Advanced sensor fusion</strong>: rivaling commercial
+              motion controllers
+            </li>
+            <li>
+              <strong>Zero-driver installation</strong>: works instantly via
+              Bluetooth HID
+            </li>
+            <li>
+              <strong>Power optimization</strong>: for extended battery life
+            </li>
+            <li>
+              <strong>Robust error recovery</strong>: that keeps working even
+              when sensors glitch
+            </li>
+            <li>
+              <strong>Multi-modal operation</strong>: supporting cursor, scroll,
+              and precision modes
+            </li>
+          </ul>
+          <p>
+            Although we didn't have a battery pack to connect the mouse to, the
+            mouse is wireless, so it can be plugged into the wall, a computer,
+            or a portable battery.
+          </p>
+        </div>
+        <h2>What We Learned</h2>
+        <div class="box">
+          <h3>From Zero to Hardware Heroes</h3>
+          <p>
+            Most of our team entered this hackathon with minimal hardware
+            experience, but the motivation to try something new and have fun
+            along the way. Because of a lack in embedded hardware mentorship, we
+            ended up learning everything on the fly ourselves as we built the
+            mouse. Through countless pinout diagrams, datasheets, and
+            trial-and-error moments, we now genuinely understand:
+          </p>
+          <ul>
+            <li>
+              <strong>Breadboarding fundamentals</strong> and circuit design
+            </li>
+            <li>
+              <strong>Embedded software development</strong> and real-time
+              constraints
+            </li>
+            <li>
+              <strong>Sensor fusion mathematics</strong> and signal processing
+            </li>
+            <li>
+              <strong>Bluetooth protocols</strong> and HID device implementation
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>The Art of Ambitious Project Management</h3>
+          <p>
+            We learned that ambitious projects require not just technical
+            skills, but strategic thinking about scope, team coordination, and
+            time management under pressure. Even a linear project can be broken
+            down into collaborative steps, and free team members can continue
+            working on other aspects of the project design.
+          </p>
+        </div>
+        <h2>The Future of AeroMouse</h2>
+        <p>
+          Our time at this hackathon was short, but our project still has a lot
+          of potential! If we had the extra time, here are some of the things we
+          would improve.
+        </p>
+        <div class="box">
+          <h3>Version 2.0 Vision</h3>
+          <ul>
+            <li>
+              <strong>Custom 3D-printed ergonomic enclosure</strong> - no more
+              breadboard aesthetic
+            </li>
+            <li>
+              <strong>Higher precision IMU</strong> for even smoother tracking
+            </li>
+            <li>
+              <strong>Rechargeable battery integration</strong> with USB-C
+              charging
+            </li>
+            <li>
+              <strong>Haptic feedback</strong> for button press confirmation
+            </li>
+            <li>
+              <strong>Multiple device support</strong> - switch between
+              computers seamlessly
+            </li>
+          </ul>
+        </div>
+        <div class="box">
+          <h3>Market Potential</h3>
+          <p>
+            AeroMouse actually addresses real pain points in the computer mouse
+            market
+          </p>
+          <ul>
+            <li>
+              <strong>Presentation professionals</strong> who need freedom from
+              podiums
+            </li>
+            <li>
+              <strong>Home entertainment enthusiasts</strong> controlling media
+              centers
+            </li>
+            <li>
+              <strong>Accessibility users</strong> who benefit from ergonomic
+              alternatives
+            </li>
+            <li>
+              <strong>Remote workers</strong> seeking comfortable computing
+              positions
+            </li>
+          </ul>
+          <p>
+            A commercialization plan is way beyond our current scope, but if we
+            can make a marketable product (not just wired to a breadboard) this
+            would be possible to manufacture and distribute, an exciting
+            possibility.
+          </p>
+        </div>
+        <div class="box">
+          <h3>Technical Roadmap</h3>
+          <p>Some other interesting ideas that we had are:</p>
+          <ul>
+            <li>
+              <strong>Machine learning integration</strong> for specific gesture
+              recognition
+            </li>
+            <li>
+              <strong>Multi-user calibration profiles</strong> for improved
+              callibration
+            </li>
+            <li>
+              <strong>Extended gesture vocabulary</strong> (swipes, rotations,
+              etc.)
+            </li>
+            <li>
+              <strong>Cross-platform mobile app</strong> for advanced
+              configuration
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <p>
+          <strong
+            >AeroMouse isn't just a hackathon project - it's a glimpse into the
+            future of human-computer interaction. After 40 years of being
+            chained to our desks, we're finally breaking free. One gesture at a
+            time.</strong
+          >
+          🚀
+        </p>
+      </div>
+
+      <div class="links-box box">
+        <h2>Links</h2>
+        <div class="links">
+          <a href="https://github.com/CorbanPendrak/aeromouse"
+            ><img src="Images/repo.svg"
+          /></a>
+
+          <a href="https://corbanpendrak.github.io/AeroMouse/"
+            ><img src="Images/demo.svg"
+          /></a>
+
+          <a href="https://devpost.com/software/floating-mouse"
+            ><img src="Images/devpost.svg"
+          /></a>
+        </div>
+      </div>
+
+      <div class="box">
+        <h2>People</h2>
+        <ul>
+          <li>
+            <strong>Corban Pendrak</strong>: Coordinated planning and scope;
+            originated the concept; implemented Bluetooth HID mouse
+            configuration and gyroscope integration; deployed GitHub Pages and
+            revised the front-end site; facilitated code integration and team
+            collaboration.
+          </li>
+
+          <li>
+            <strong>Adam Stiles</strong>: Implemented core button input handling
+            for clicks and mode triggers; collaborated on integration points
+            with the mouse workflow.
+          </li>
+
+          <li>
+            <strong>Ryan Schmidt</strong>: Assisted with button logic and
+            initial gyroscope hookup; supported general debugging across
+            modules.
+          </li>
+
+          <li>
+            <strong>Sebastian Striba</strong>: Developed the project website and
+            presentation materials; structured visuals and copy for clear demos
+            and documentation.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </body>
+</html>

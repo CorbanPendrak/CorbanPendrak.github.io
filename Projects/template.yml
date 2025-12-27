@@ -1,0 +1,32 @@
+id: template
+title: Template
+dateStarted: 2025-11-13
+dateUpdated: 2025-11-13
+status: active # Set to active for current development, complete for a currently
+# complete project, and finished for a project with no expected future improvement.
+tags:
+  - web
+tech_stack:
+  - Flask
+languages:
+  - Python
+links:
+  repo: https://github.com/CorbanPendrak/aeromouse
+  demo: https://corbanpendrak.github.io/aeromouse
+  devpost: https://devpost.com/software/floating-mouse
+media:
+  coverImage: /assets/projects/aeromouse/cover.jpg
+  gallery:
+    - /assets/projects/aeromouse/1.jpg
+    - /assets/projects/aeromouse/2.jpg
+people: # Add other contributors
+  - name: Corban Pendrak
+    role: Short summary of what you did
+summary_md: |
+  This is a short summary of the project
+details_md: |
+  # Project Description
+  Use **Markdown** for this part
+commits:
+  - Commit 1
+  - Commit 2

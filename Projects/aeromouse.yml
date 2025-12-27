@@ -1,0 +1,160 @@
+id: aeromouse
+title: AeroMouse — ESP32 Wireless Air Mouse
+dateStarted: 2025-10-25
+dateUpdated: 2025-10-28
+status: complete
+tags:
+  - robotics
+  - esp32
+  - embedded
+links:
+  repo: https://github.com/CorbanPendrak/aeromouse
+  demo: https://corbanpendrak.github.io/AeroMouse/
+  devpost: https://devpost.com/software/floating-mouse
+people:
+  - name: Corban Pendrak
+    role: Coordinated planning and scope; originated the concept; implemented Bluetooth HID mouse configuration and gyroscope integration; deployed GitHub Pages and revised the front-end site; facilitated code integration and team collaboration.
+  - name: Adam Stiles
+    role: Implemented core button input handling for clicks and mode triggers; collaborated on integration points with the mouse workflow.
+  - name: Ryan Schmidt
+    role: Assisted with button logic and initial gyroscope hookup; supported general debugging across modules.
+  - name: Sebastian Striba
+    role: Developed the project website and presentation materials; structured visuals and copy for clear demos and documentation.
+summary_md: |
+  AeroMouse is a wireless air mouse built with ESP32 and IMU sensors.
+
+  It translates natural hand motion into precise cursor movement.
+details_md: |
+  ## Inspiration
+  We were inspired a bit by extremely ergonomic science fiction controllers and the Nintendo Wii remote with that magical feeling of controlling a fine tuned cursor from a distance with just hand gestures. Picture this: you're lounging on your couch, wanting to browse the internet or control a presentation, but you're physically chained to a flat surface by the ancient mouse. Sure, presentation clickers "work", but they allow for little control, and remotes "work", but they require carefully pointing at a tiny button. After 40 years of desktop tyranny, we asked ourselves - why are we still tethered to flat surfaces? The vision was simple yet revolutionary: **your computer, un-tethered**.
+
+  ## What AeroMouse Does
+  AeroMouse is a wireless air mouse that translates natural hand gestures into precise cursor control using advanced sensor fusion technology. Hold it like a TV remote and simply:
+
+  - **Tilt** to move the cursor horizontally and vertically
+  - **Click** buttons for left/right/middle mouse functions
+  - **Double-tap** middle button to switch to scroll mode
+
+  Perfect for entertainment systems, presentations, couch computing, or anyone tired of being physically restricted to a desk setup. Even sitting at a regular desk, AeroMouse allows for the comfort of leaning back or moving without stretching your hand awkwardly. No drivers, no dongles, no hassle - just pure freedom through Bluetooth connectivity.
+
+  ## The Building Blocks of Our Vision
+
+  ### The Hardware
+  We started with humble components but ambitious goals:
+
+  - **ESP32 DevKit** as our brain (thanks to the IEEE workshop!)
+  - **MPU6050** 6-axis IMU sensor for tracking orientation
+  - **3 push buttons** for full mouse functionality
+  - **Breadboard foundation** for rapid prototyping
+
+  Originally, we intended to use a Raspberry Pi based system, like the Raspberry Pi Zero, but with challenges with connecting to the device, we pivoted to using the ESP32. While a released product would feature much nicer case, we used a breadboard for easier testing and demonstrating the functionality. To improve the form, we used wires, rather than jumper cables for the breadboard.
+
+  ### The Software Revolution  
+  The real work happened in the code. We handcoded the design and implemented sophisticated algorithms for nice cursor tracking.
+
+  - **Complementary Filter**: Fuses gyroscope with custom curves for rock-solid tracking
+  - **Adaptive Bias Correction**: Automatically compensates for sensor drift using Kalman-lite approach
+  - **Non-linear Response Curves**: Separate mathematical curves for cursor vs scroll modes
+  - **Momentum System**: Captures those subtle, slow movements with 0.88 decay rate
+  - **Health Monitoring**: Automatic I2C recovery when sensors misbehave
+
+  We wrote the code in C/C++ using Arduino IDE, to have better low level access and customization. We used the ESP32 BLE Mouse library to wirelessly connect our device as a Bluetooth HID mouse.
+
+  ## Challenges We Conquered
+
+  ### Team Coordination and Work
+  With only 2 ESP32s for 4 team members during the hackathon crunch, we had to get creative with collaboration. Additionally, with such a linear hardware project, where the connection required the gyroscope which required the buttons, it was hard to work together on some of the sections. Despite this, we divided the tasks along roughly obvious categories and worked together as much as possible. With our extra team power, we created a product website and polished it. 
+
+  ### Precision vs. Usability  
+  Our biggest technical challenge was achieving the perfect balance between sensitivity, stability, and the gyroscope's own limitations. Too sensitive meant the mouse was too jittery. Too slow meant sluggish frustration. We solved this with:
+
+  - **Multiple sensitivity modes** (Low/Medium/High) 
+  - **Smart deadzone algorithms** to eliminate micro-movements
+  - **Exponential smoothing** for smooth tracking
+
+  We originally wrote all of our code **by hand**, which worked well, but the cursor was _not as smooth_ as any commercial product. After building the working demo code ourselves, we decided to have AI write some custom curve algorithms for us as a last minute experiment to improve the controls. After several failed attempts with Gemini, which possibly made the code worse, and Copilot, which just made it wrong in different ways, Claude rewrote the majority of the code in an iterative experimentation process that resulted in a much smoother mouse, which has ended up being our final submission. So, the majority of our code will flag as AI produced, because these final rewrites changed the code significantly, but **we originally wrote all of the code ourselves**. If we had more time, we might have been able to code the customized calibration curves ourselves, but even working with AI, we needed to revise the code several times to achieve the best functionality.
+
+  ### Gyroscope Accuracy
+  Initially the MPU6050 gyroscope wasn't quite meeting our precision expectations. Our code (pre-AI) worked, but we ran into issues with the gyroscope precision, where small movements would be ignored and the gyroscope would reset its heading. This made for a very difficult challenge that we just didn't have time to fix. However, with some help from AI and **several** rounds of testing lasting into the early morning before the submission deadline, we developed custom calibration controls to mitigate this error. 
+
+  ### Library Troubles
+  The T-vK ESP32 BLE Mouse library saved us a lot of work, which we immediately used for exploring hardware alternatives, improving the calibration, and building a website. However, it wouldn't originally run for us because of some type conversion errors in the library itself, and we almost had to rewrite the entire library from scratch. Thankfully, our team found the problem, fixed the library by hand, and compiled the code correctly for the rest of the team, all while multitask attending some of the great workshops hosted at the hackathon.
+
+  ## Accomplishments That Make Us Proud
+
+  ### We Shipped a Complete Product!
+  In just 36 hours, we created a **WORKING LIVE PRODUCT** that:
+
+  - Seamlessly connects to all computers that support Bluetooth normally (Mac, Windows, most Linux...)
+  - Registers with the computer identically to a traditional mouse (so no weird connection issues)
+  - Includes expected UX features like drag & drop and scroll modes (makes for a nicer experience)
+  - Self-calibrates and recovers from errors automatically (all with a sarcastic attitude)
+  - Provides intuitive gesture-based control (no more flat mice!)
+
+  While we technically had ~36 hours for the competition, with planning, failed attempts with the Raspberry Pi, and a health(ish) sleep schedule, we completed the project in more like **12 hours**, but even during this time, we made space to attend intereting workshops, the career fair, meals, and a few rounds of video games to keep the environment fun.
+
+  ### Technical Breakthroughs We Achieved
+  - **Advanced sensor fusion**: rivaling commercial motion controllers
+  - **Zero-driver installation**: works instantly via Bluetooth HID
+  - **Power optimization**: for extended battery life
+  - **Robust error recovery**: that keeps working even when sensors glitch
+  - **Multi-modal operation**: supporting cursor, scroll, and precision modes
+
+  Although we didn't have a battery pack to connect the mouse to, the mouse is wireless, so it can be plugged into the wall, a computer, or a portable battery.
+
+  ## What We Learned
+
+  ### From Zero to Hardware Heroes
+  Most of our team entered this hackathon with minimal hardware experience, but the motivation to try something new and have fun along the way. Because of a lack in embedded hardware mentorship, we ended up learning everything on the fly ourselves as we built the mouse. Through countless pinout diagrams, datasheets, and trial-and-error moments, we now genuinely understand:
+
+  - **Breadboarding fundamentals** and circuit design
+  - **Embedded software development** and real-time constraints  
+  - **Sensor fusion mathematics** and signal processing
+  - **Bluetooth protocols** and HID device implementation
+
+  ### The Art of Ambitious Project Management
+  We learned that ambitious projects require not just technical skills, but strategic thinking about scope, team coordination, and time management under pressure. Even a linear project can be broken down into collaborative steps, and free team members can continue working on other aspects of the project design.
+
+  ## The Future of AeroMouse
+  Our time at this hackathon was short, but our project still has a lot of potential! If we had the extra time, here are some of the things we would improve.
+
+  ### Version 2.0 Vision
+  - **Custom 3D-printed ergonomic enclosure** - no more breadboard aesthetic
+  - **Higher precision IMU** for even smoother tracking  
+  - **Rechargeable battery integration** with USB-C charging
+  - **Haptic feedback** for button press confirmation
+  - **Multiple device support** - switch between computers seamlessly
+
+  ### Market Potential  
+  AeroMouse actually addresses real pain points in the computer mouse market
+
+  - **Presentation professionals** who need freedom from podiums
+  - **Home entertainment enthusiasts** controlling media centers
+  - **Accessibility users** who benefit from ergonomic alternatives
+  - **Remote workers** seeking comfortable computing positions
+
+  A commercialization plan is way beyond our current scope, but if we can make a marketable product (not just wired to a breadboard) this would be possible to manufacture and distribute, an exciting possibility.
+
+  ### Technical Roadmap
+  Some other interesting ideas that we had are:
+
+  - **Machine learning integration** for specific gesture recognition
+  - **Multi-user calibration profiles** for improved callibration
+  - **Extended gesture vocabulary** (swipes, rotations, etc.)
+  - **Cross-platform mobile app** for advanced configuration
+
+  ---
+  **AeroMouse isn't just a hackathon project - it's a glimpse into the future of human-computer interaction. After 40 years of being chained to our desks, we're finally breaking free. One gesture at a time.** 🚀
+tech_stack:
+  - Arduino HID
+  - MPU-6050 Gyroscope
+  - ESP32
+media:
+  coverImage: /assets/projects/aeromouse/cover.jpg
+  gallery:
+    - /assets/projects/aeromouse/1.jpg
+    - /assets/projects/aeromouse/2.jpg
+visibility: public
+commits:
+  - Commit 1
+  - Commit 2
