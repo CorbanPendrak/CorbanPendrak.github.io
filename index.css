@@ -1,0 +1,105 @@
+body {
+  background: linear-gradient(25deg, #151515, #435b5b);
+  color: #d3d3d3;
+  font-family: "Helvetica", "Arial", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+.links {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 1em;
+  display: flex;
+  border-radius: 0 0 0 10px;
+}
+
+.links a {
+  color: #84c9c9;
+  text-decoration: none;
+  margin: 0 1em;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5em;
+}
+
+.section {
+}
+
+h1,
+h2 {
+  color: #79a8a8;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  margin: 0 -5em;
+}
+
+.card {
+  transition: transform 0.2s;
+  background: linear-gradient(348deg, #292932, #3e5151);
+  color: #d3d3d3;
+  border-bottom: 3px solid #476363;
+  border-radius: 10px;
+  padding: 1em;
+}
+
+.card:hover {
+  transform: scale(1.05) rotate(5deg);
+  transition: transform 0.5s;
+}
+
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  gap: 2em;
+}
+
+/* SVG loader styles */
+.loader {
+  height: 20%;
+}
+
+@keyframes loader-spin {
+  to {
+    stroke-dashoffset: 90;
+  }
+}
+
+@keyframes pop-out {
+  from {
+    stroke-dasharray: 20, 0, 0, 0, 0, 10;
+  }
+  to {
+    stroke-dasharray: 8, 5, 2, 5, 0, 10;
+  }
+}
+
+.loader > * {
+  stroke: #84c9c9;
+  stroke-width: 10px;
+  stroke-linecap: round;
+  stroke-dasharray: 20, 0, 0, 0, 0, 10;
+  fill: none;
+  animation:
+    loader-spin 1800ms infinite,
+    pop-out 900ms linear infinite alternate;
+}
+
+.loader square {
+  stroke-width: 30px;
+}
