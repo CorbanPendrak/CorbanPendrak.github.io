@@ -1,0 +1,41 @@
+li {
+  list-style: none;
+  margin-bottom: 0.5em;
+  transition: linear(
+      0,
+      0.03 1.1%,
+      0.125 2.4%,
+      0.906 9.8%,
+      1.046 12.3%,
+      1.11 15%,
+      1.116 16.3%,
+      1.11 17.8%,
+      1.014 25.8%,
+      0.987 31.2%,
+      1.001 47.2%,
+      1
+    )
+    1s;
+}
+
+li:hover {
+  font-size: 1.2em;
+}
+
+.cards {
+  column-width: 20em;
+  margin: auto;
+}
+
+.card {
+  display: inline-block;
+  width: 100%;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo:hover {
+  border: 2px solid black;
+}
