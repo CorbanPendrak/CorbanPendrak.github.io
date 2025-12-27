@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      property="og:image"
+      content="https://corbanpendrak.github.io/Images/Website-sharing-minimalist.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="https://corbanpendrak.github.io/Images/Favicon16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="https://corbanpendrak.github.io/Images/Favicon32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="https://corbanpendrak.github.io/Images/Favicon48.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="https://corbanpendrak.github.io/Images/Favicon180.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="https://corbanpendrak.github.io/Images/Favicon192.png"
+    />
+    <title>{{ page_title }}</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/pruger/tiny-brutalism-css/tiny-brutalism.css"
+    />
+    <style>
+      .logo {
+        text-decoration: none;
+      }
+      li {
+        list-style: none;
+      }
+      .cards {
+        column-width: 20em;
+        margin: auto;
+      }
+      .card {
+        display: inline-block;
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <a class="logo" src="corbanpendrak.github.io"
+      ><h1 class="text-center">Corban Pendrak</h1></a
+    >
+    <div class="container">
+      <h2>{{ title }}</h2>
+      <p>{{ description }}</p>
+      <div class="cards">
+        {% for category in categories %}
+        <div class="card">
+          <div class="box">
+            <h2>{{ category.name }}</h2>
+            <ul>
+              {% for link in category.links %}
+              <li>
+                <a href="{{ link.url }}">{{ link.text }}</a>
+                {% if link.extra %} <span>({{ link.extra }})</span>{% endif %}
+              </li>
+              {% endfor %}
+            </ul>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
