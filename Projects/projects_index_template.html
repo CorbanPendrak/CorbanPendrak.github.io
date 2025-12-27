@@ -42,6 +42,25 @@
       href="https://cdn.jsdelivr.net/gh/pruger/tiny-brutalism-css/tiny-brutalism.css"
     />
     <link rel="stylesheet" href="global.css" />
+    <style>
+      .cards {
+        column-width: 25em;
+        margin: auto;
+      }
+
+      .card {
+        display: inline-block;
+        width: 100%;
+      }
+
+      .logo {
+        text-decoration: none;
+      }
+
+      .logo:hover {
+        border: 2px solid black;
+      }
+    </style>
   </head>
   <body>
     <h1 class="text-center">
@@ -49,14 +68,14 @@
     </h1>
     <div class="container">
       <h1>Projects</h1>
-      <ul>
+      <div class="cards">
         {% for project in projects %}
-        <li>
-          <a href="{{ project.page }}">{{ project.title }}</a> - {{
-          project.status }} <br /><small>{{ project.summary }}</small>
-        </li>
+        <div class="card box">
+          <h2><a href="{{ project.page }}">{{ project.title }}</a></h2>
+          <small>{{ project.summary }}</small>
+        </div>
         {% endfor %}
-      </ul>
+      </div>
     </div>
   </body>
 </html>
