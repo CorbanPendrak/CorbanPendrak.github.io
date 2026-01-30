@@ -36,7 +36,7 @@
       sizes="192x192"
       href="https://corbanpendrak.github.io/Images/Favicon192.png"
     />
-    <title>Projects</title>
+    <title>My Projects</title>
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/pruger/tiny-brutalism-css/tiny-brutalism.css"
@@ -72,7 +72,13 @@
         {% for project in projects %}
         <div class="card box">
           <h2><a href="{{ project.page }}">{{ project.title }}</a></h2>
-          <small>{{ project.summary }}</small>
+          {% if project.tags %}
+          <small>
+            Tags: {% for tag in project.tags %}<span>{{ tag }}</span>{% if not
+            loop.last %}, {% endif %}{% endfor %}
+          </small>
+          {% endif %}
+          <p>{{ project.summary }}</p>
         </div>
         {% endfor %}
       </div>
