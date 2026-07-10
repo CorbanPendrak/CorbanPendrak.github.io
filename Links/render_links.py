@@ -35,11 +35,28 @@ def parse_markdown(md: List[str]) -> Tuple[str, str, List[Dict[str, Any]]]:
             current_category = {'name': cat_name, 'links': []}
             categories.append(current_category)
         elif line.lstrip().startswith('- '):
-            m = link_pattern.search(line)
-            if m and current_category:
-                groups = m.groups()
-                text, url = groups[0], groups[1]
-                current_category['links'].append({'text': text, 'url': url})
+            if not current_category:
+                continue
+
+            content = line.lstrip()[2:].strip()
+            matches = list(link_pattern.finditer(content))
+            if not matches:
+                continue
+
+            segments: List[Dict[str, str]] = []
+            last_index = 0
+            for match in matches:
+                prefix = content[last_index:match.start()]
+                if prefix:
+                    segments.append({'type': 'text', 'value': prefix})
+                segments.append({'type': 'link', 'text': match.group(1), 'url': match.group(2)})
+                last_index = match.end()
+
+            suffix = content[last_index:]
+            if suffix:
+                segments.append({'type': 'text', 'value': suffix})
+
+            current_category['links'].append({'segments': segments})
     description = description.strip()
     return title, description, categories
 

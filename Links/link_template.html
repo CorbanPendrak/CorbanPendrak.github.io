@@ -59,8 +59,14 @@
             <ul>
               {% for link in category.links %}
               <li>
+                {% if link.segments %} {% for segment in link.segments %} {% if
+                segment.type == 'link' %}
+                <a href="{{ segment.url }}">{{ segment.text }}</a>
+                {% else %} {{ segment.value }} {% endif %} {% endfor %} {% else
+                %}
                 <a href="{{ link.url }}">{{ link.text }}</a>
                 {% if link.extra %} <span>({{ link.extra }})</span>{% endif %}
+                {% endif %}
               </li>
               {% endfor %}
             </ul>
