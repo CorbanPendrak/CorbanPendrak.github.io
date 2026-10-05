@@ -3,7 +3,10 @@
 Here is a list of links that I've found useful.
 
 - General
+  - [LessWrong](https://www.lesswrong.com/bestoflesswrong)
+  - [AI 2027](https://ai-2027.com/) ([2040](https://ai-2040.com/))
   - [Efficient communication](https://nohello.net/en/) ([part 2](https://dontasktoask.com/))
+  - [Astronomy stuff](https://in-the-sky.org/)
   - [Interesting articles (Pudding)](https://pudding.cool/)
   - [Nice forms (Tally)](https://tally.so/dashboard)
 - Books
@@ -12,31 +15,30 @@ Here is a list of links that I've found useful.
   - [Three Worlds Collide (online story)](https://www.lesswrong.com/posts/HawFh7RvDM4RyoJ2d/three-worlds-collide-0-8)
   - [The Gentle Romance (online story)](https://www.lesswrong.com/posts/Rz4ijbeKgPAaedg3n/the-gentle-romance)
   - [Ebooks](https://standardebooks.org/)
-  - [Textbooks](https://www.lesswrong.com/posts/xg3hXCYQPJkwHyik2/the-best-textbooks-on-every-subject)
 - Linguistics
-  - [IPA](https://neography.info/phonetics-and-ipa/)
-  - [IPA interactive chart](https://www.ipachart.com/)
+  - [IPA](https://neography.info/phonetics-and-ipa/) ([interactive](https://www.ipachart.com/))
   - [Linguistic puzzles](https://ioling.org/problems/)
   - [Linguistic puzzles and resources](https://www.naclo.org/resources.php)
-- American Sign Language
-  - [ASL course](https://www.lifeprint.com/asl101/lessons/lesson01.htm)
-  - [Finger spelling practice](https://asl.ms/)
-  - [Common topic videos](https://gallaudet.edu/asl-connect/topics/)
-  - [More resources](https://asl.mit.edu/online-resources-asl/)
 - Programming
   - [Roadmaps](https://roadmap.sh/dashboard)
   - [Code images (carbon.sh)](https://carbon.now.sh/)
-  - [TUI system monitoring (Btop)](https://github.com/aristocratos/btop#compilation-macos-osx)
   - [TUI File Manager (ncdu)](https://linuxblog.io/ncdu-command-in-linux-examples/)
   - [Website design inspiration](https://wattenberger.com/thoughts/our-interfaces-have-lost-their-senses/)
   - [Animating Math (Manim)](https://docs.manim.community/en/stable/examples.html)
   - [Global Hack Week](https://ghw.mlh.com/)
   - [GitHub Awesome Lists](https://github.com/sindresorhus/awesome)
+- Cybersecurity
+  - [Little game](https://untrustedgame.com/)
+  - [CyberChef](https://gchq.github.io/CyberChef/)
+  - [HackTheBox](https://profile.hackthebox.com/profile/019c91d8-df8a-7032-9465-1422f72a7f5b)
+  - [My notes](https://corbanpendrak.github.io/cybersecurity/)
+  - [Lots of wargames](https://github.com/zardus/wargame-nexus)
+  - [PwnCollege](https://pwn.college/dojos)
 - Fun stuff
   - [XKCD comics](https://xkcd.com/1658/)
   - [Emoji cryptography](https://emoji.paulbutler.org/?mode=decode)
   - [Fara game](https://brianiscreative.itch.io/fara)
-  - [BIOTOMATA game](https://talos0248.itch.io/biotomata)
-  - [Bitburner game](https://bitburner-official.github.io/)
+  - [FNF Vocaloid pack](https://www.snokido.com/game/fnf-vocaloid-pack)
+  - [4x4 Archipelago](https://agat.itch.io/4x4-archipelago)
   - [Homestuck](https://homestuck.com/)
   - [Trigaea game](https://ryngm.itch.io/trigaea)
